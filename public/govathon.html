@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gov'athon 2025 - Soumission de Projet IA</title>
+    <meta name="description" content="Plateforme futuriste de soumission de projets Gov'athon 2025 - Intelligence Artificielle">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700;800&family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #00A859;
+            --accent-color: #00D674;
+            --dark-bg: #0f0f23;
+            --card-bg: #1a1a2e;
+            --text-primary: #ffffff;
+            --text-muted: #8b949e;
+            --border-color: #30363d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f0f23, #1a1a2e, #0d2818);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Exo 2', sans-serif;
+        }
+
+        .orbitron {
+            font-family: 'Orbitron', monospace;
+        }
+
+        /* Neural Background */
+        .neural-bg {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f0f23, #1a1a2e, #0d2818);
+        }
+
+        .neural-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(0, 168, 89, 0.1) 1px, transparent 1px),
+                radial-gradient(circle at 80% 70%, rgba(0, 214, 116, 0.15) 1px, transparent 1px),
+                radial-gradient(circle at 40% 80%, rgba(0, 168, 89, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px, 80px 80px, 60px 60px;
+            animation: neural-pulse 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        /* Holographic Card */
+        .holographic {
+            background: linear-gradient(145deg, rgba(26, 26, 46, 0.9), rgba(26, 26, 46, 0.95));
+            border: 1px solid rgba(0, 168, 89, 0.3);
+            box-shadow: 
+                0 0 30px rgba(0, 214, 116, 0.5), 
+                inset 0 0 20px rgba(0, 168, 89, 0.1);
+            position: relative;
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+        }
+
+        .holographic::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 214, 116, 0.2), transparent);
+            animation: holographic-scan 3s ease-in-out infinite;
+            border-radius: inherit;
+        }
+
+        /* Futuristic Button */
+        .btn-futuristic {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            padding: 12px 24px;
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            border: 1px solid var(--accent-color);
+            box-shadow: 0 0 10px rgba(0, 168, 89, 0.3);
+            font-family: 'Exo 2', sans-serif;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-futuristic:hover {
+            box-shadow: 0 0 20px rgba(0, 168, 89, 0.6);
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        .btn-futuristic::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 214, 116, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-futuristic:hover::before {
+            left: 100%;
+        }
+
+        /* Form Input AI */
+        .form-input-ai {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            padding: 12px 16px;
+            background: #16213e;
+            color: var(--text-primary);
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-input-ai:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 10px rgba(0, 168, 89, 0.3);
+            background: #1e2749;
+        }
+
+        /* Progress Bar */
+        .progress-neural {
+            position: relative;
+            height: 8px;
+            border-radius: 4px;
+            background: #2d3748;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: inherit;
+            transition: width 0.7s ease-out;
+            animation: progress-glow 2s ease-in-out infinite;
+        }
+
+        .step-indicator {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid var(--border-color);
+            background: #2d3748;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .step-indicator.active {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 0 20px rgba(0, 168, 89, 0.6);
+            animation: progress-glow 2s ease-in-out infinite;
+        }
+
+        .step-indicator.completed {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Icon 3D Effect */
+        .icon-3d {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .icon-3d:hover {
+            transform: rotateY(180deg) scale(1.1);
+            color: var(--accent-color);
+            filter: drop-shadow(0 0 10px var(--accent-color));
+        }
+
+        /* Glitch Text */
+        .glitch-text {
+            position: relative;
+        }
+
+        .glitch-text:hover {
+            animation: glitch 0.3s ease-in-out;
+        }
+
+        /* Particle */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            animation: particle-float 6s ease-in-out infinite;
+            box-shadow: 0 0 10px var(--accent-color);
+        }
+
+        /* Canvas Styling */
+        #neuralCanvas, #particleCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        #particleCanvas {
+            pointer-events: auto;
+            z-index: 1;
+        }
+
+        /* Form Container 3D */
+        .form-container {
+            transform: perspective(1000px) rotateX(2deg);
+            transition: transform 0.3s ease-out;
+        }
+
+        .form-container:hover {
+            transform: perspective(1000px) rotateX(0deg) rotateY(2deg);
+        }
+
+        /* Success Animation */
+        .success-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 168, 89, 0.8);
+            z-index: 9998;
+            opacity: 0;
+            animation: flash-green 0.5s ease-out forwards;
+        }
+
+        .success-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10000;
+            font-family: 'Orbitron', monospace;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-shadow: 0 0 20px var(--primary-color);
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        /* Animations */
+        @keyframes neural-pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes particle-float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-10px) rotate(90deg); }
+            50% { transform: translateY(-5px) rotate(180deg); }
+            75% { transform: translateY(-15px) rotate(270deg); }
+        }
+
+        @keyframes holographic-scan {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        @keyframes glitch {
+            0%, 100% { transform: translateX(0); }
+            20% { transform: translateX(-2px); }
+            40% { transform: translateX(2px); }
+            60% { transform: translateX(-1px); }
+            80% { transform: translateX(1px); }
+        }
+
+        @keyframes progress-glow {
+            0%, 100% { box-shadow: 0 0 5px var(--primary-color); }
+            50% { box-shadow: 0 0 20px var(--primary-color), 0 0 30px var(--accent-color); }
+        }
+
+        @keyframes matrix-rain {
+            0% { transform: translateY(-100vh); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+
+        @keyframes flash-green {
+            0% { opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { opacity: 0; }
+        }
+
+        @keyframes typewriter {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .form-container {
+                transform: none;
+            }
+            .form-container:hover {
+                transform: none;
+            }
+            .success-message {
+                font-size: 1.5rem;
+                padding: 0 20px;
+                white-space: normal;
+            }
+        }
+
+        /* Hidden Steps */
+        .step-content {
+            display: none;
+        }
+
+        .step-content.active {
+            display: block;
+        }
+
+        /* Team Member Card */
+        .team-member-card {
+            background: rgba(26, 26, 46, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .team-member-card:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-top: 2px solid currentColor;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Neural Network Background Canvas -->
+    <canvas id="neuralCanvas"></canvas>
+    
+    <!-- Particle Field Canvas -->
+    <canvas id="particleCanvas"></canvas>
+
+    <div class="neural-bg d-flex align-items-center justify-content-center p-4">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10 col-xl-8">
+                    <div class="form-container">
+                        <!-- Header -->
+                        <div class="text-center mb-5">
+                            <h1 class="display-4 fw-bold mb-3 glitch-text" style="color: var(--primary-color);">
+                                Gov'athon 2025
+                            </h1>
+                            <p class="lead" style="color: var(--text-muted);">
+                                Soumission de Projet IA - Futur des Services Publics
+                            </p>
+                        </div>
+
+                        <!-- Progress Bar -->
+                        <div class="row justify-content-center mb-5">
+                            <div class="col-12 col-md-8">
+                                <div class="position-relative mb-4">
+                                    <div class="progress-neural">
+                                        <div id="progressFill" class="progress-fill" style="width: 33.33%;"></div>
+                                    </div>
+                                    
+                                    <!-- Step Indicators -->
+                                    <div class="d-flex justify-content-between position-absolute w-100" style="top: -12px;">
+                                        <button class="step-indicator active" data-step="1" title="Projet">
+                                            <i class="fas fa-rocket"></i>
+                                            <!-- Particles for active step -->
+                                            <div class="particle-container">
+                                                <div class="particle" style="animation-delay: 0s; transform: translate(-50%, -50%) rotate(0deg) translateY(-20px);"></div>
+                                                <div class="particle" style="animation-delay: 0.2s; transform: translate(-50%, -50%) rotate(60deg) translateY(-20px);"></div>
+                                                <div class="particle" style="animation-delay: 0.4s; transform: translate(-50%, -50%) rotate(120deg) translateY(-20px);"></div>
+                                                <div class="particle" style="animation-delay: 0.6s; transform: translate(-50%, -50%) rotate(180deg) translateY(-20px);"></div>
+                                                <div class="particle" style="animation-delay: 0.8s; transform: translate(-50%, -50%) rotate(240deg) translateY(-20px);"></div>
+                                                <div class="particle" style="animation-delay: 1s; transform: translate(-50%, -50%) rotate(300deg) translateY(-20px);"></div>
+                                            </div>
+                                        </button>
+                                        <button class="step-indicator" data-step="2" title="Équipe">
+                                            <i class="fas fa-users"></i>
+                                        </button>
+                                        <button class="step-indicator" data-step="3" title="Confirmation">
+                                            <i class="fas fa-check-circle"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Step Labels -->
+                                <div class="d-flex justify-content-between text-center">
+                                    <div class="flex-fill">
+                                        <div class="fw-medium" style="color: var(--primary-color);">Projet</div>
+                                        <div class="small" style="color: var(--text-muted);">33%</div>
+                                    </div>
+                                    <div class="flex-fill">
+                                        <div class="fw-medium" style="color: var(--text-muted);">Équipe</div>
+                                        <div class="small" style="color: var(--text-muted);">66%</div>
+                                    </div>
+                                    <div class="flex-fill">
+                                        <div class="fw-medium" style="color: var(--text-muted);">Confirmation</div>
+                                        <div class="small" style="color: var(--text-muted);">100%</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Form Card -->
+                        <div class="holographic p-4 p-md-5">
+                            <form id="govathonForm" novalidate>
+                                <!-- Step 1: Project -->
+                                <div id="step1" class="step-content active">
+                                    <div class="text-center mb-4">
+                                        <h2 class="h3 fw-bold mb-2 glitch-text" style="color: var(--primary-color);">
+                                            <i class="fas fa-rocket icon-3d me-3"></i>
+                                            Informations du Projet
+                                        </h2>
+                                        <p style="color: var(--text-muted);">Décrivez votre projet innovant</p>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-12 mb-3">
+                                            <label for="projectName" class="form-label fw-medium">Nom du Projet *</label>
+                                            <input type="text" class="form-input-ai" id="projectName" placeholder="Ex: IA pour l'optimisation des services publics" required>
+                                        </div>
+                                        <div class="col-12 mb-3">
+                                            <label for="sector" class="form-label fw-medium">Secteur</label>
+                                            <input type="text" class="form-input-ai" id="sector" placeholder="Ex: Santé, Éducation, Transport...">
+                                        </div>
+                                        <div class="col-12 mb-4">
+                                            <label for="description" class="form-label fw-medium">Description du Projet *</label>
+                                            <textarea class="form-input-ai" id="description" rows="5" placeholder="Décrivez votre projet, ses objectifs et son impact..." required></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex justify-content-end">
+                                        <button type="button" class="btn-futuristic" onclick="nextStep()">
+                                            Suivant
+                                            <i class="fas fa-arrow-right ms-2"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Step 2: Team -->
+                                <div id="step2" class="step-content">
+                                    <div class="text-center mb-4">
+                                        <h2 class="h3 fw-bold mb-2 glitch-text" style="color: var(--primary-color);">
+                                            <i class="fas fa-users icon-3d me-3"></i>
+                                            Configuration de l'Équipe
+                                        </h2>
+                                        <p style="color: var(--text-muted);">Ajoutez les membres de votre équipe</p>
+                                    </div>
+
+                                    <!-- Team Leader -->
+                                    <div class="holographic p-4 mb-4">
+                                        <h3 class="h5 fw-semibold mb-3" style="color: var(--primary-color);">
+                                            <i class="fas fa-user-crown icon-3d me-2"></i>
+                                            Chef d'Équipe
+                                        </h3>
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="leaderName" class="form-label fw-medium">Nom *</label>
+                                                <input type="text" class="form-input-ai" id="leaderName" required>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="leaderEmail" class="form-label fw-medium">Email *</label>
+                                                <input type="email" class="form-input-ai" id="leaderEmail" required>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="leaderPhone" class="form-label fw-medium">Téléphone</label>
+                                                <input type="tel" class="form-input-ai" id="leaderPhone">
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="leaderRole" class="form-label fw-medium">Rôle</label>
+                                                <input type="text" class="form-input-ai" id="leaderRole" value="Chef d'équipe" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Team Members -->
+                                    <div class="holographic p-4">
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <h3 class="h5 fw-semibold mb-0" style="color: var(--primary-color);">
+                                                <i class="fas fa-users icon-3d me-2"></i>
+                                                Membres de l'Équipe
+                                            </h3>
+                                            <button type="button" class="btn-futuristic" onclick="addTeamMember()">
+                                                <i class="fas fa-plus me-2"></i>
+                                                Ajouter
+                                            </button>
+                                        </div>
+
+                                        <div id="teamMembersContainer">
+                                            <div class="text-center py-5" id="noMembersMessage" style="color: var(--text-muted);">
+                                                <i class="fas fa-users fa-3x mb-3 opacity-50"></i>
+                                                <p>Aucun membre ajouté. Cliquez sur "Ajouter" pour commencer.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex justify-content-between mt-4">
+                                        <button type="button" class="btn btn-outline-success" onclick="prevStep()">
+                                            <i class="fas fa-arrow-left me-2"></i>
+                                            Précédent
+                                        </button>
+                                        <button type="button" class="btn-futuristic" onclick="nextStep()">
+                                            Suivant
+                                            <i class="fas fa-arrow-right ms-2"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Step 3: Confirmation -->
+                                <div id="step3" class="step-content">
+                                    <div class="text-center mb-4">
+                                        <h2 class="h3 fw-bold mb-2 glitch-text" style="color: var(--primary-color);">
+                                            <i class="fas fa-check-circle icon-3d me-3"></i>
+                                            Confirmation
+                                        </h2>
+                                        <p style="color: var(--text-muted);">Vérifiez vos informations avant soumission</p>
+                                    </div>
+
+                                    <div id="confirmationContent">
+                                        <!-- Content will be populated by JavaScript -->
+                                    </div>
+
+                                    <div class="d-flex justify-content-between mt-4">
+                                        <button type="button" class="btn btn-outline-success" onclick="prevStep()">
+                                            <i class="fas fa-arrow-left me-2"></i>
+                                            Précédent
+                                        </button>
+                                        <button type="button" class="btn-futuristic" onclick="submitForm()" id="submitBtn">
+                                            <i class="fas fa-paper-plane me-2"></i>
+                                            Soumettre
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Global variables
+        let currentStep = 1;
+        let teamMembers = [];
+        let memberIdCounter = 0;
+
+        // Speech Synthesis
+        function speak(text) {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'fr-FR';
+                utterance.rate = 0.9;
+                speechSynthesis.speak(utterance);
+            }
+        }
+
+        // Neural Network Canvas
+        function initNeuralNetwork() {
+            const canvas = document.getElementById('neuralCanvas');
+            const ctx = canvas.getContext('2d');
+            let nodes = [];
+            let animationId;
+
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+
+            function createNodes() {
+                nodes = [];
+                const nodeCount = Math.floor((canvas.width * canvas.height) / 15000);
+                
+                for (let i = 0; i < nodeCount; i++) {
+                    nodes.push({
+                        x: Math.random() * canvas.width,
+                        y: Math.random() * canvas.height,
+                        vx: (Math.random() - 0.5) * 0.5,
+                        vy: (Math.random() - 0.5) * 0.5,
+                    });
+                }
+            }
+
+            function drawNode(node) {
+                ctx.beginPath();
+                ctx.arc(node.x, node.y, 2, 0, Math.PI * 2);
+                ctx.fillStyle = '#00A859';
+                ctx.shadowColor = '#00A859';
+                ctx.shadowBlur = 10;
+                ctx.fill();
+                ctx.shadowBlur = 0;
+            }
+
+            function drawConnection(node1, node2, distance) {
+                const opacity = Math.max(0, 1 - distance / 150);
+                ctx.beginPath();
+                ctx.moveTo(node1.x, node1.y);
+                ctx.lineTo(node2.x, node2.y);
+                ctx.strokeStyle = `rgba(0, 168, 89, ${opacity * 0.3})`;
+                ctx.lineWidth = 1;
+                ctx.stroke();
+            }
+
+            function updateNodes() {
+                nodes.forEach(node => {
+                    node.x += node.vx;
+                    node.y += node.vy;
+
+                    if (node.x <= 0 || node.x >= canvas.width) {
+                        node.vx *= -1;
+                        node.x = Math.max(0, Math.min(canvas.width, node.x));
+                    }
+                    if (node.y <= 0 || node.y >= canvas.height) {
+                        node.vy *= -1;
+                        node.y = Math.max(0, Math.min(canvas.height, node.y));
+                    }
+                });
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                updateNodes();
+
+                // Draw connections
+                for (let i = 0; i < nodes.length; i++) {
+                    for (let j = i + 1; j < nodes.length; j++) {
+                        const dx = nodes[i].x - nodes[j].x;
+                        const dy = nodes[i].y - nodes[j].y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+
+                        if (distance < 150) {
+                            drawConnection(nodes[i], nodes[j], distance);
+                        }
+                    }
+                }
+
+                // Draw nodes
+                nodes.forEach(drawNode);
+
+                animationId = requestAnimationFrame(animate);
+            }
+
+            resizeCanvas();
+            createNodes();
+            animate();
+
+            window.addEventListener('resize', () => {
+                resizeCanvas();
+                createNodes();
+            });
+        }
+
+        // Particle Field
+        function initParticleField() {
+            const canvas = document.getElementById('particleCanvas');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            let mouse = { x: 0, y: 0 };
+            let animationId;
+
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+
+            function createParticles() {
+                particles = [];
+                const particleCount = 50;
+                
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push({
+                        x: Math.random() * canvas.width,
+                        y: Math.random() * canvas.height,
+                        vx: (Math.random() - 0.5) * 2,
+                        vy: (Math.random() - 0.5) * 2,
+                        size: Math.random() * 3 + 1,
+                        opacity: Math.random() * 0.8 + 0.2,
+                        hue: Math.random() * 30 + 130,
+                    });
+                }
+            }
+
+            function updateParticles() {
+                particles.forEach(particle => {
+                    // Mouse attraction
+                    const dx = mouse.x - particle.x;
+                    const dy = mouse.y - particle.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 150) {
+                        const force = (150 - distance) / 150;
+                        particle.vx += (dx / distance) * force * 0.1;
+                        particle.vy += (dy / distance) * force * 0.1;
+                    }
+
+                    particle.x += particle.vx;
+                    particle.y += particle.vy;
+
+                    // Bounce off edges
+                    if (particle.x <= 0 || particle.x >= canvas.width) {
+                        particle.vx *= -0.8;
+                        particle.x = Math.max(0, Math.min(canvas.width, particle.x));
+                    }
+                    if (particle.y <= 0 || particle.y >= canvas.height) {
+                        particle.vy *= -0.8;
+                        particle.y = Math.max(0, Math.min(canvas.height, particle.y));
+                    }
+
+                    // Apply friction
+                    particle.vx *= 0.99;
+                    particle.vy *= 0.99;
+
+                    // Pulsing opacity
+                    particle.opacity = 0.3 + 0.5 * Math.sin(Date.now() * 0.001 + particle.x * 0.01);
+                });
+            }
+
+            function drawParticle(particle) {
+                ctx.save();
+                
+                // Create gradient
+                const gradient = ctx.createRadialGradient(
+                    particle.x, particle.y, 0,
+                    particle.x, particle.y, particle.size * 3
+                );
+                gradient.addColorStop(0, `hsla(${particle.hue}, 80%, 60%, ${particle.opacity})`);
+                gradient.addColorStop(1, `hsla(${particle.hue}, 80%, 60%, 0)`);
+                
+                ctx.fillStyle = gradient;
+                ctx.beginPath();
+                ctx.arc(particle.x, particle.y, particle.size * 3, 0, Math.PI * 2);
+                ctx.fill();
+                
+                // Core
+                ctx.fillStyle = `hsla(${particle.hue}, 100%, 70%, ${particle.opacity * 0.8})`;
+                ctx.beginPath();
+                ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                ctx.fill();
+                
+                ctx.restore();
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                updateParticles();
+                particles.forEach(drawParticle);
+
+                animationId = requestAnimationFrame(animate);
+            }
+
+            canvas.addEventListener('mousemove', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                mouse.x = e.clientX - rect.left;
+                mouse.y = e.clientY - rect.top;
+            });
+
+            canvas.addEventListener('touchmove', (e) => {
+                e.preventDefault();
+                const rect = canvas.getBoundingClientRect();
+                const touch = e.touches[0];
+                mouse.x = touch.clientX - rect.left;
+                mouse.y = touch.clientY - rect.top;
+            });
+
+            resizeCanvas();
+            createParticles();
+            animate();
+
+            window.addEventListener('resize', () => {
+                resizeCanvas();
+                createParticles();
+            });
+        }
+
+        // Form Functions
+        function updateProgress() {
+            const progressFill = document.getElementById('progressFill');
+            const stepIndicators = document.querySelectorAll('.step-indicator');
+            const stepLabels = document.querySelectorAll('.d-flex.justify-content-between.text-center .fw-medium');
+            
+            const percentage = ((currentStep - 1) / 2) * 100;
+            progressFill.style.width = percentage + '%';
+
+            stepIndicators.forEach((indicator, index) => {
+                const step = index + 1;
+                indicator.classList.remove('active', 'completed');
+                
+                if (step < currentStep) {
+                    indicator.classList.add('completed');
+                } else if (step === currentStep) {
+                    indicator.classList.add('active');
+                }
+            });
+
+            // Update label colors
+            stepLabels.forEach((label, index) => {
+                const step = index + 1;
+                if (step <= currentStep) {
+                    label.style.color = 'var(--primary-color)';
+                } else {
+                    label.style.color = 'var(--text-muted)';
+                }
+            });
+
+            // Update particles
+            updateParticles();
+        }
+
+        function updateParticles() {
+            document.querySelectorAll('.particle-container').forEach(container => {
+                container.remove();
+            });
+
+            const activeIndicator = document.querySelector('.step-indicator.active');
+            if (activeIndicator) {
+                const particleContainer = document.createElement('div');
+                particleContainer.className = 'particle-container';
+                
+                for (let i = 0; i < 6; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.style.animationDelay = (i * 0.2) + 's';
+                    particle.style.transform = `translate(-50%, -50%) rotate(${i * 60}deg) translateY(-20px)`;
+                    particleContainer.appendChild(particle);
+                }
+                
+                activeIndicator.appendChild(particleContainer);
+            }
+        }
+
+        function showStep(step) {
+            document.querySelectorAll('.step-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(`step${step}`).classList.add('active');
+        }
+
+        function addGlitchEffect() {
+            const formContainer = document.querySelector('.form-container');
+            formContainer.style.animation = 'glitch 0.3s ease-out';
+            setTimeout(() => {
+                formContainer.style.animation = '';
+            }, 300);
+        }
+
+        function validateStep(step) {
+            switch (step) {
+                case 1:
+                    const projectName = document.getElementById('projectName').value.trim();
+                    const description = document.getElementById('description').value.trim();
+                    
+                    if (!projectName) {
+                        alert('Le nom du projet est requis');
+                        speak('Erreur: Le nom du projet est requis');
+                        return false;
+                    }
+                    if (!description) {
+                        alert('La description du projet est requise');
+                        speak('Erreur: La description du projet est requise');
+                        return false;
+                    }
+                    return true;
+                    
+                case 2:
+                    const leaderName = document.getElementById('leaderName').value.trim();
+                    const leaderEmail = document.getElementById('leaderEmail').value.trim();
+                    
+                    if (!leaderName) {
+                        alert('Le nom du chef d\'équipe est requis');
+                        speak('Erreur: Le nom du chef d\'équipe est requis');
+                        return false;
+                    }
+                    if (!leaderEmail) {
+                        alert('L\'email du chef d\'équipe est requis');
+                        speak('Erreur: L\'email du chef d\'équipe est requis');
+                        return false;
+                    }
+                    return true;
+                    
+                default:
+                    return true;
+            }
+        }
+
+        function nextStep() {
+            if (validateStep(currentStep)) {
+                currentStep++;
+                if (currentStep === 3) {
+                    populateConfirmation();
+                }
+                
+                showStep(currentStep);
+                updateProgress();
+                addGlitchEffect();
+                
+                // Voice feedback
+                switch (currentStep) {
+                    case 2:
+                        speak('Étape 2: Configuration de l\'équipe');
+                        break;
+                    case 3:
+                        speak('Étape 3: Confirmation des informations');
+                        break;
+                }
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                showStep(currentStep);
+                updateProgress();
+                addGlitchEffect();
+            }
+        }
+
+        function goToStep(step) {
+            if (step <= currentStep || validateStep(currentStep)) {
+                currentStep = step;
+                if (currentStep === 3) {
+                    populateConfirmation();
+                }
+                showStep(currentStep);
+                updateProgress();
+                speak(`Étape ${step}`);
+            }
+        }
+
+        function addTeamMember() {
+            memberIdCounter++;
+            const memberId = 'member_' + memberIdCounter;
+            
+            teamMembers.push({
+                id: memberId,
+                name: '',
+                email: '',
+                role: ''
+            });
+
+            renderTeamMembers();
+        }
+
+        function removeTeamMember(id) {
+            teamMembers = teamMembers.filter(member => member.id !== id);
+            renderTeamMembers();
+        }
+
+        function updateTeamMember(id, field, value) {
+            const member = teamMembers.find(m => m.id === id);
+            if (member) {
+                member[field] = value;
+            }
+        }
+
+        function renderTeamMembers() {
+            const container = document.getElementById('teamMembersContainer');
+            const noMembersMessage = document.getElementById('noMembersMessage');
+            
+            if (teamMembers.length === 0) {
+                noMembersMessage.style.display = 'block';
+                container.innerHTML = '';
+                container.appendChild(noMembersMessage);
+                return;
+            }
+            
+            noMembersMessage.style.display = 'none';
+            
+            const membersHTML = teamMembers.map(member => `
+                <div class="team-member-card">
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label fw-medium">Nom</label>
+                            <input type="text" class="form-input-ai" value="${member.name}" 
+                                   onchange="updateTeamMember('${member.id}', 'name', this.value)">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label fw-medium">Email</label>
+                            <input type="email" class="form-input-ai" value="${member.email}"
+                                   onchange="updateTeamMember('${member.id}', 'email', this.value)">
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label fw-medium">Rôle</label>
+                            <input type="text" class="form-input-ai" value="${member.role}"
+                                   onchange="updateTeamMember('${member.id}', 'role', this.value)">
+                        </div>
+                        <div class="col-md-1 mb-3 d-flex align-items-end">
+                            <button type="button" class="btn btn-danger btn-sm" 
+                                    onclick="removeTeamMember('${member.id}')">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            container.innerHTML = membersHTML;
+        }
+
+        function populateConfirmation() {
+            const projectName = document.getElementById('projectName').value;
+            const sector = document.getElementById('sector').value;
+            const description = document.getElementById('description').value;
+            const leaderName = document.getElementById('leaderName').value;
+            const leaderEmail = document.getElementById('leaderEmail').value;
+            const leaderPhone = document.getElementById('leaderPhone').value;
+            const leaderRole = document.getElementById('leaderRole').value;
+
+            let confirmationHTML = `
+                <!-- Projet -->
+                <div class="holographic p-4 mb-4">
+                    <h3 class="h5 fw-semibold mb-3" style="color: var(--primary-color);">
+                        <i class="fas fa-file-alt icon-3d me-2"></i>
+                        Projet
+                    </h3>
+                    <div class="mb-2"><strong>Nom:</strong> ${projectName}</div>
+                    <div class="mb-2"><strong>Secteur:</strong> ${sector || 'Non spécifié'}</div>
+                    <div class="mb-2"><strong>Description:</strong> ${description}</div>
+                </div>
+
+                <!-- Chef d'équipe -->
+                <div class="holographic p-4 mb-4">
+                    <h3 class="h5 fw-semibold mb-3" style="color: var(--primary-color);">
+                        <i class="fas fa-user-crown icon-3d me-2"></i>
+                        Chef d'Équipe
+                    </h3>
+                    <div class="mb-2"><strong>Nom:</strong> ${leaderName}</div>
+                    <div class="mb-2"><strong>Email:</strong> ${leaderEmail}</div>
+                    <div class="mb-2"><strong>Téléphone:</strong> ${leaderPhone || 'Non spécifié'}</div>
+                    <div class="mb-2"><strong>Rôle:</strong> ${leaderRole}</div>
+                </div>
+            `;
+
+            if (teamMembers.length > 0) {
+                confirmationHTML += `
+                    <!-- Membres -->
+                    <div class="holographic p-4">
+                        <h3 class="h5 fw-semibold mb-3" style="color: var(--primary-color);">
+                            <i class="fas fa-users icon-3d me-2"></i>
+                            Membres de l'Équipe (${teamMembers.length})
+                        </h3>
+                        <div class="row">
+                `;
+
+                teamMembers.forEach((member, index) => {
+                    confirmationHTML += `
+                        <div class="col-md-6 mb-3">
+                            <div class="border-start border-success border-3 ps-3">
+                                <div class="fw-medium">${member.name || `Membre ${index + 1}`}</div>
+                                <div class="small text-muted">${member.email}</div>
+                                <div class="small text-muted">${member.role || 'Rôle non spécifié'}</div>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                confirmationHTML += `
+                        </div>
+                    </div>
+                `;
+            }
+
+            document.getElementById('confirmationContent').innerHTML = confirmationHTML;
+        }
+
+        function createConfetti() {
+            const colors = ['#00A859', '#00D674', '#ffffff'];
+            const confettiContainer = document.createElement('div');
+            confettiContainer.style.position = 'fixed';
+            confettiContainer.style.top = '0';
+            confettiContainer.style.left = '0';
+            confettiContainer.style.width = '100%';
+            confettiContainer.style.height = '100%';
+            confettiContainer.style.pointerEvents = 'none';
+            confettiContainer.style.zIndex = '9999';
+            document.body.appendChild(confettiContainer);
+
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.style.position = 'absolute';
+                confetti.style.width = '10px';
+                confetti.style.height = '10px';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.left = Math.random() * window.innerWidth + 'px';
+                confetti.style.top = '-10px';
+                confetti.style.borderRadius = '50%';
+                confetti.style.animation = `matrix-rain ${Math.random() * 3 + 2}s linear forwards`;
+                confettiContainer.appendChild(confetti);
+            }
+
+            setTimeout(() => {
+                if (document.body.contains(confettiContainer)) {
+                    document.body.removeChild(confettiContainer);
+                }
+            }, 5000);
+        }
+
+        function submitForm() {
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.innerHTML = '<i class="spinner me-2"></i>Soumission...';
+            submitBtn.disabled = true;
+            
+            // Collect form data
+            const formData = {
+                projectName: document.getElementById('projectName').value,
+                sector: document.getElementById('sector').value,
+                description: document.getElementById('description').value,
+                teamLeader: {
+                    name: document.getElementById('leaderName').value,
+                    email: document.getElementById('leaderEmail').value,
+                    phone: document.getElementById('leaderPhone').value,
+                    role: document.getElementById('leaderRole').value
+                },
+                teamMembers: teamMembers
+            };
+
+            // Green flash effect
+            const flash = document.createElement('div');
+            flash.className = 'success-overlay';
+            document.body.appendChild(flash);
+
+            createConfetti();
+
+            // Success message with typewriter effect
+            setTimeout(() => {
+                const successDiv = document.createElement('div');
+                successDiv.className = 'success-message';
+                document.body.appendChild(successDiv);
+
+                const message = 'Félicitations, vous avez soumis avec succès';
+                let currentChar = 0;
+
+                function typeWriter() {
+                    if (currentChar < message.length) {
+                        successDiv.textContent = message.substring(0, currentChar + 1);
+                        currentChar++;
+                        setTimeout(typeWriter, 50);
+                    } else {
+                        // Play triumph sound
+                        playTriumphSound();
+                    }
+                }
+
+                typeWriter();
+                
+                setTimeout(() => {
+                    if (document.body.contains(flash)) {
+                        document.body.removeChild(flash);
+                    }
+                    if (document.body.contains(successDiv)) {
+                        document.body.removeChild(successDiv);
+                    }
+                }, 3500);
+            }, 500);
+
+            // Log form data
+            console.log('Données soumises:', formData);
+
+            // Reload after animation
+            setTimeout(() => {
+                window.location.reload();
+            }, 3500);
+        }
+
+        function playTriumphSound() {
+            try {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.setValueAtTime(523.25, audioContext.currentTime); // C5
+                oscillator.frequency.setValueAtTime(659.25, audioContext.currentTime + 0.1); // E5
+                oscillator.frequency.setValueAtTime(783.99, audioContext.currentTime + 0.2); // G5
+                
+                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+                
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.5);
+            } catch (error) {
+                console.log('Audio context not supported');
+            }
+        }
+
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize canvases
+            initNeuralNetwork();
+            initParticleField();
+            
+            // Step indicator click handlers
+            document.querySelectorAll('.step-indicator').forEach(indicator => {
+                indicator.addEventListener('click', function() {
+                    const step = parseInt(this.dataset.step);
+                    goToStep(step);
+                });
+            });
+
+            // Initialize particles for first step
+            updateParticles();
+        });
+
+        // Responsive handling
+        window.addEventListener('resize', function() {
+            // Canvas resize is handled in their respective functions
+        });
+    </script>
+</body>
+</html>
