@@ -22,6 +22,7 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          glow: "hsl(var(--primary-glow))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -47,16 +48,21 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
-        },
+      },
+      fontFamily: {
+        'heading': ['var(--font-heading)'],
+        'orbitron': ['var(--font-orbitron)'],
+        'body': ['var(--font-body)'],
+      },
+      backgroundImage: {
+        'gradient-neural': 'var(--gradient-neural)',
+        'gradient-glow': 'var(--gradient-glow)',
+        'gradient-form': 'var(--gradient-form)',
+      },
+      boxShadow: {
+        'neural': 'var(--shadow-neural)',
+        'holographic': 'var(--shadow-holographic)',
+        'glow-pulse': 'var(--glow-pulse)',
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -65,25 +71,47 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "neural-pulse": {
+          "0%, 100%": { opacity: "0.3" },
+          "50%": { opacity: "1" },
+        },
+        "particle-float": {
+          "0%, 100%": { transform: "translateY(0px) rotate(0deg)" },
+          "25%": { transform: "translateY(-10px) rotate(90deg)" },
+          "50%": { transform: "translateY(-5px) rotate(180deg)" },
+          "75%": { transform: "translateY(-15px) rotate(270deg)" },
+        },
+        "holographic-scan": {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(100%)" },
+        },
+        "glitch": {
+          "0%, 100%": { transform: "translateX(0)" },
+          "20%": { transform: "translateX(-2px)" },
+          "40%": { transform: "translateX(2px)" },
+          "60%": { transform: "translateX(-1px)" },
+          "80%": { transform: "translateX(1px)" },
+        },
+        "progress-glow": {
+          "0%, 100%": { boxShadow: "0 0 5px hsl(var(--primary))" },
+          "50%": { boxShadow: "0 0 20px hsl(var(--primary)), 0 0 30px hsl(var(--primary-glow))" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "neural-pulse": "neural-pulse 3s ease-in-out infinite",
+        "particle-float": "particle-float 6s ease-in-out infinite",
+        "holographic-scan": "holographic-scan 3s ease-in-out infinite",
+        "glitch": "glitch 0.3s ease-in-out",
+        "progress-glow": "progress-glow 2s ease-in-out infinite",
       },
     },
   },

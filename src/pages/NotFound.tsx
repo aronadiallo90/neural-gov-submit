@@ -9,12 +9,22 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">404</h1>
-        <p className="mb-4 text-xl text-gray-600">Oops! Page not found</p>
-        <a href="/" className="text-blue-500 underline hover:text-blue-700">
-          Return to Home
+    <div className="neural-bg min-h-screen flex items-center justify-center">
+      <div className="holographic rounded-lg p-8 text-center max-w-md mx-4">
+        <h1 className="mb-4 text-4xl font-bold text-primary font-heading glitch-text">
+          <i className="fas fa-exclamation-triangle icon-3d mr-3"></i>
+          404
+        </h1>
+        <p className="mb-6 text-xl text-foreground">Page non trouvée</p>
+        <p className="mb-6 text-muted-foreground">
+          La page que vous cherchez n'existe pas dans l'univers Gov'athon.
+        </p>
+        <a 
+          href="/" 
+          className="btn-futuristic inline-block text-decoration-none"
+        >
+          <i className="fas fa-home mr-2"></i>
+          Retour à l'accueil
         </a>
       </div>
     </div>
